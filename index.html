@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Click Challenge</title>
+    <style>
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="clickMeBtn">Click me</button>
+
+    <script>
+      ;(function () {
+        let clickCount = 0
+        let targetClicks = 1
+        const btn = document.getElementById('clickMeBtn')
+
+        btn.addEventListener('click', function () {
+          clickCount++
+          if (clickCount === targetClicks) {
+            // Show message
+            btn.textContent = 'Still feeling so smart now?'
+
+            // Wait 0.1 seconds before showing "Click me" again
+            setTimeout(() => {
+              btn.textContent = 'Click me'
+              // Reset click count
+              clickCount = 0
+              // Increment the target clicks by 3
+              targetClicks += 3
+            }, 50) // 0.1 second = 100 milliseconds
+          }
+        })
+      })()
+    </script>
+  </body>
+</html>
